@@ -162,4 +162,6 @@ persons.splice(1,0,{ id: "48", name: "Barry", occupation: "Runner", age: "25" })
 console.log(persons);
 // Add the following object to the end of the array:
 // { id: "7", name: "Bilbo", occupation: "None", age: "111" }
+persons.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
+console.log(persons);
 // Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group.This calculation should be accomplished using a loop.
