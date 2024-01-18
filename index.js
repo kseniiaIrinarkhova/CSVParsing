@@ -115,3 +115,42 @@ for (const symbol of inputStr) {
 }
 
 console.log(table);
+
+/**Part 3: Transforming Data
+ For each row of data in the result array produced by your code above, create an object where the key of each value is the heading for that value’s column.
+    Convert these keys to all lowercase letters for consistency.
+Store these objects in an array, in the order that they were originally listed.
+Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
+ */
+
+console.log(`
+*****************************************
+***Part 3: Transforming Data*************
+*****************************************
+`);
+
+//declare resulting object
+let person = {};
+let persons = []; 
+
+table[0].forEach(key => {
+    person[key.toLowerCase()] =''
+});
+
+//go for all rows in table except the first one
+for (let i = 1; i < table.length; i++){
+
+    for(let j = 0; j < table[0].length; j++){
+        //create an object that has "key" as j element in 0 row and "value" as j-element in i row
+        person[table[0][j].toLowerCase()] = table[i][j];
+
+    }
+    //add person at the end of our resulting array
+    persons.push(person);
+}
+
+console.log(persons);
+
+
+
+
