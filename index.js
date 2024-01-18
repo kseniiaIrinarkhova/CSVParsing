@@ -19,7 +19,6 @@ let cell3 = null;
 let cell4 = null;
 ---------------------------- */
 let row =[];
-row.length = 4; //we have fixed row length
 
 for (const symbol of str) {
     switch (symbol) {
@@ -81,4 +80,38 @@ Cache this two-dimensional array in a variable for later use.
 
 input: ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26
 */
+console.log(`
+*****************************************
+***Part 2: Expanding Functionality*******
+*****************************************
+`);
+// variable
+let inputStr = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
+let table =[]; //final table
+row = [];
+cellValue="";
 
+for (const symbol of inputStr) {
+    switch (symbol) {
+        case ',':
+            //add cell in row
+            row.push(cellValue);
+            //clean cell value for the next cell
+            cellValue = "";
+            break;
+        case '\n':
+            //found full row
+           
+            row.push(cellValue); // added the last cell value
+            table.push(row); //added row to table
+            row = []; //clear row
+            cellValue = "";
+            break;
+        default:
+            //just a character from cell data
+            cellValue += symbol; //concatenate characters to get a cell data
+            break;
+    }
+}
+
+console.log(table);
