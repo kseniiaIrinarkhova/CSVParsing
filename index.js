@@ -1,3 +1,5 @@
+/*Part 1 Refactoring
+
 /* Copy of Part 3  of previous lab */
 console.log(`
 *****************************************
@@ -9,14 +11,21 @@ const str = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.
 
 let cellValue = "";
 //Declare cell info
+/* ---------------------------
+* Old code. Change to array
 let cell1 = null;
 let cell2 = null;
 let cell3 = null;
 let cell4 = null;
+---------------------------- */
+let row =[];
+row.length = 4; //we have fixed row length
 
 for (const symbol of str) {
     switch (symbol) {
         case ',':
+            /* --------------------------------
+            * Old code. do not need to check cells
             //found full data from cell
             //chose the cell that we fullfill now
             if (cell1 === null) {
@@ -28,11 +37,15 @@ for (const symbol of str) {
             else if (cell3 === null) {
                 cell3 = cellValue;
             }
+            ------------------------------------ */
+            row.push(cellValue);
             //clean cell value for the next cell
             cellValue = "";
             break;
         case '\n':
             //found full row
+            /* -----------------------------------------
+            * old code. 
             cell4 = cellValue;
             console.log(`${cell1} | ${cell2} | ${cell3} | ${cell4} `);
             //reset cells data:
@@ -40,6 +53,12 @@ for (const symbol of str) {
             cell2 = null;
             cell3 = null;
             cell4 = null;
+            ------------------------------------------- */
+            row.push(cellValue); // added the last cell value
+
+            console.log(row);
+
+            row = []; //clear row
             cellValue = "";
             break;
         default:
