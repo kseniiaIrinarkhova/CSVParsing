@@ -132,14 +132,9 @@ console.log(`
 //declare resulting object
 let person = {};
 let persons = []; 
-
-table[0].forEach(key => {
-    person[key.toLowerCase()] =''
-});
-
 //go for all rows in table except the first one
 for (let i = 1; i < table.length; i++){
-
+    person = {};
     for(let j = 0; j < table[0].length; j++){
         //create an object that has "key" as j element in 0 row and "value" as j-element in i row
         person[table[0][j].toLowerCase()] = table[i][j];
@@ -152,7 +147,15 @@ for (let i = 1; i < table.length; i++){
 console.log(persons);
 
 /**Part 4: Sorting and Manipulating Data */
-// Remove the last element from the sorted array.
+console.log(`
+*****************************************
+***Part 4: Sorting and Manipulating Data*
+*****************************************
+`);
+
+// Remove the last element from the sorted array
+persons.pop();
+console.log(persons);
 // Insert the following object at index 1:
 // Insert the following object at index 1:
 // { id: "48", name: "Barry", occupation: "Runner", age: "25" }
