@@ -176,3 +176,14 @@ for (const person of persons) {
 averageAge /= persons.length;
 
 console.log(`The average age of the group is: ${averageAge}`);
+
+/*Part 5: Full Circle
+*As a final task, transform the final set of data back into CSV format.
+*/
+
+console.log(`
+*****************************************
+***Part 5: Full Circle*******************
+*****************************************
+`);
+
