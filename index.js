@@ -187,3 +187,18 @@ console.log(`
 *****************************************
 `);
 
+let returnStr = persons.join('\n')
+//find the 1st part of line
+let keys = Object.keys(persons[0]);
+
+returnStr = keys.join(",") + '\n';
+
+persons.forEach((person) =>{
+    //add value to result string for each key
+    for (const key in person) {
+        returnStr += person[key] + ','; //would be extra ',' at the end
+    }
+    returnStr = returnStr.replace(/.$/, '\n'); //change last char ',' to '\n'
+});
+console.log("The resulting line is")
+console.log(`${returnStr}`);
